@@ -74,7 +74,7 @@ package object middleware {
             case Right(_) => ZIO.succeed(None)
 
           },
-          Response(
+          Response[R, E, Option[AuthResult], Int](
             HttpResponse.StatusCode,
             (authResult: Option[AuthResult], _: Int) =>
               ZIO.succeed(
